@@ -2,6 +2,7 @@
 name = "dooray-mcp"
 version = "0.1.0"
 description = "Dooray MCP server for project management"
+license = "MIT"
 requires-python = ">=3.12"
 dependencies = [
     "mcp[cli]>=1.2.0",
