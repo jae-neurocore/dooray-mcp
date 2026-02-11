@@ -301,7 +301,7 @@ async def find_task_by_number(project_code: str, task_number: int) -> dict:
     # Step 2: search for the task by number
     tasks = await _get(
         f"/project/v1/projects/{project_id}/posts",
-        {"number": task_number},
+        {"postNumber": task_number},
     )
 
     if isinstance(tasks, list):
