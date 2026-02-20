@@ -1,6 +1,33 @@
-"""MCP prompt for updating Dooray issues from git commits."""
+"""MCP prompts for Dooray git workflows."""
 
 from dooray_mcp import mcp
+
+
+@mcp.prompt()
+def commit_message_convention(project_code: str = "APS") -> str:
+    """Commit message convention for linking commits to Dooray tasks."""
+    return f"""\
+## 커밋 메시지 컨벤션
+
+모든 커밋 메시지는 다음 형식을 따릅니다:
+
+```
+[#{project_code}/태스크번호] 한글로 커밋 메시지 작성
+```
+
+### 규칙
+- 대괄호 안에 `#프로젝트코드/태스크번호`를 포함합니다
+- 커밋 메시지는 **한글**로 작성합니다
+- 프로젝트 코드는 Dooray 프로젝트 코드입니다 (예: {project_code})
+- 태스크 번호는 Dooray 업무 번호입니다
+
+### 예시
+```
+[#{project_code}/1964] 스케줄러 캘린더 처리 로직 수정
+[#{project_code}/1520] 인라인 공정 시간 계산 버그 수정
+[#{project_code}/2001] 새로운 리소스 할당 알고리즘 추가
+```
+"""
 
 
 @mcp.prompt()
